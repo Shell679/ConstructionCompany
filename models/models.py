@@ -1,7 +1,6 @@
 from datetime import datetime
-from enum import Enum
 
-from sqlalchemy import MetaData, Column, Integer, String, Float, ForeignKey, DateTime
+from sqlalchemy import MetaData, Column, Integer, String, Float, ForeignKey, DateTime, Enum
 from sqlalchemy.orm import declarative_base, relationship
 
 metadata = MetaData()
@@ -10,6 +9,7 @@ Base = declarative_base(metadata=metadata)
 
 class Client(Base):
     __tablename__ = 'clients'
+    metadata = metadata
 
     id = Column(Integer, primary_key=True, index=True)
     first_name = Column(String(100), nullable=False)
@@ -22,6 +22,7 @@ class Client(Base):
 
 class Project(Base):
     __tablename__ = 'projects'
+    metadata = metadata
 
     id = Column(Integer, primary_key=True, index=True)
     client_id = Column(Integer, ForeignKey("clients.id"))
