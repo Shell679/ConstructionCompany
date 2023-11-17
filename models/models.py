@@ -28,14 +28,10 @@ class Project(Base):
     client_id = Column(Integer, ForeignKey("clients.id"))
     type_of_house = Column(Enum('Cottage', 'Villa', 'Mansion', 'Estate', 'Residence', 'EcoHouse', name='type_of_house'), nullable=False)
     num_floors = Column(Integer, nullable=False)
-    square_floors = Column(Float, nullable=False)
+    square_of_house = Column(Float, nullable=False)
     budget = Column(Float, nullable=False)
     status = Column(String(256), nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
     due_date = Column(DateTime)
 
     client = relationship("Client", back_populates="projects")
-
-    def update_fields(self, **kwargs):
-        for key, value in kwargs.items():
-            setattr(self, key, value)
