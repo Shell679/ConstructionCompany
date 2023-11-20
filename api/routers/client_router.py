@@ -29,11 +29,11 @@ async def get_client(client_id: int, session: AsyncSession = Depends(get_async_s
     return client
 
 
-@router.get("/clients/{order_number}", response_model=ClientRead)
-async def get_client(order_number: int, session: AsyncSession = Depends(get_async_session)):
+@router.get("/clients/order_number/{order_number}", response_model=ClientRead)
+async def get_order_by_number(order_number: int, session: AsyncSession = Depends(get_async_session)):
     client_repository = ClientRepository(session)
 
-    client = await client_repository.get_client(order_number)
+    client = await client_repository.get_order_by_number(order_number)
     return client
 
 
