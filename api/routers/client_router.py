@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from api.repositories.client_repository import ClientRepository
-from models.schemas import ClientRead, ClientCreate
+from models.schemas import ClientRead, ClientCreate, ClientUpdate
 from utils.database import get_async_session
 
 router = APIRouter(
@@ -43,3 +43,11 @@ async def delete_client(client_id: int, session: AsyncSession = Depends(get_asyn
 
     await client_repository.delete_client(client_id)
     return None
+
+
+@router.put("/clients/{client_id}", response_model=ClientRead)
+async def update_project(client_id: int, client: ClientUpdate, session: AsyncSession = Depends(get_async_session)):
+    client_repository = ClientRepository(session)
+
+    client = await client_repository.update_client(client_id, client)
+    return client

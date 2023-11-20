@@ -4,7 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from starlette import status
 
 from models.models import Client
-from models.schemas import ClientCreate
+from models.schemas import ClientCreate, ClientUpdate
 
 
 class ClientRepository:
@@ -36,4 +36,20 @@ class ClientRepository:
 
         await self.session.delete(client)
         await self.session.commit()
+        return client
+
+    async def update_client(self, client_id: int, client_update: ClientUpdate):
+        client = await self.get_client(client_id)
+
+        if client is None:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Client not found")
+
+        update_values = client_update.model_dump(exclude_unset=True)
+
+        for key, value in update_values.items():
+            setattr(client, key, value)
+
+        await self.session.commit()
+        await self.session.refresh(client)
+
         return client
