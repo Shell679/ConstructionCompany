@@ -29,6 +29,14 @@ async def get_client(client_id: int, session: AsyncSession = Depends(get_async_s
     return client
 
 
+@router.get("/clients/{order_number}", response_model=ClientRead)
+async def get_client(order_number: int, session: AsyncSession = Depends(get_async_session)):
+    client_repository = ClientRepository(session)
+
+    client = await client_repository.get_client(order_number)
+    return client
+
+
 @router.post("/clients/", response_model=ClientCreate)
 async def create_client(client: ClientCreate, session: AsyncSession = Depends(get_async_session)):
     client_repository = ClientRepository(session)

@@ -1,4 +1,5 @@
 from fastapi import HTTPException
+from sqlalchemy.exc import NoResultFound
 from sqlalchemy.sql import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from starlette import status
@@ -20,6 +21,14 @@ class ClientRepository:
         result = await self.session.execute(select(Client).where(Client.id == client_id))
         client = result.scalar_one()
         return client
+
+    async def get_order_by_number(self, order_number: int):
+        try:
+            result = await self.session.execute(select(Client).where(Client.order_number == order_number))
+            get_order_number = result.scalar_one()
+        except NoResultFound:
+            raise HTTPException(status_code=404, detail="Order not found")
+        return get_order_number
 
     async def create_client(self, client: ClientCreate):
         new_client = Client(**client.model_dump())
