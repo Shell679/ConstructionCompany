@@ -1,0 +1,107 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+html {
+    font-family: Inter;
+}
+
+body {
+    background-color: #02AAB0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    vertical-align: middle;
+}
+
+header {
+    display: flex;
+}
+
+.headerTop {
+    margin-left: 3vw;
+    margin-top: 1vw;
+    width: 20vw;
+    height: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainPageLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 26vw;
+    height: 3vw;
+    border: 1px solid #000;
+    background-color: #FFF;
+    border-radius: 20px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.container {
+    margin-top: 10vw;
+}
+
+form {
+    left: 5vw;
+    position: absolute;
+    width: 15rem;
+    display: block;
+}
+
+label {
+    display: block;
+    transform: translate(0, -2.75rem);
+}
+
+input {
+    width: 100%;
+    padding: 0.25rem;
+    border: none;
+    border-bottom: 2px solid #111;
+    transition: border-color 0.2s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: green;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #111;
+    background-color: #111;
+    color: #fff;
+    font-weight: bold;
+    font-family: Inter;
+}
+
+@supports (not (-ms-ime-align:auto)) {
+    label {
+    color: #999;
+    transform: translate(0.25rem, -1.5rem);
+    transition: all 0.2s ease-out;
+    }
+    
+    input:focus + label,
+    input:not(:placeholder-shown) + label {
+    color: #111;
+    transform: translate(0, -2.75rem);
+    }
+}
+
+.orderInfo {
+    display: flex;
+    flex-direction: column;
+}

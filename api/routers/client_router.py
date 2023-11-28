@@ -3,6 +3,8 @@ from typing import List
 from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
+import logging
+
 from api.repositories.client_repository import ClientRepository
 from models.schemas import ClientRead, ClientCreate, ClientUpdate
 from utils.database import get_async_session
@@ -33,11 +35,13 @@ async def get_client(client_id: int, session: AsyncSession = Depends(get_async_s
 async def get_order_by_number(order_number: int, session: AsyncSession = Depends(get_async_session)):
     client_repository = ClientRepository(session)
 
+    logging.info(f"Response for order {order_number}")
+
     client = await client_repository.get_order_by_number(order_number)
     return client
 
 
-@router.post("/clients/", response_model=ClientCreate)
+@router.post("/clients/", response_model=ClientRead)
 async def create_client(client: ClientCreate, session: AsyncSession = Depends(get_async_session)):
     client_repository = ClientRepository(session)
 

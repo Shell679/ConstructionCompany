@@ -5,22 +5,26 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/main_page/mainPage.css">
+    <link rel="stylesheet" href ="/static_main_page/mainPage.css">
+    <link rel="shortcut icon" href="/static_main_page/images/logoImg.png" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
-    <script src="/main_page/mainPage.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <script src="/static_main_page/mainPage.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/static_main_page/jquery.maskedinput.min.js"></script>
     <title>Tadjic entertainment limited corporation</title>
 </head>
 <body>
-    <header>
+    <header id="main">
         <div class="headerTop">
             <nav class="navigationMenu">
                 <ul>
-                    <li class="navigationElement" id="navigationElement"><a href="#">Главная</a></li>
-                    <li class="navigationElement" id="navigationElement"><a href="#">О компании</a></li>
-                    <li class="navigationElement" id="navigationElement"><a href="#">Наши проекты</a></li>
-                    <li class="navigationElement" id="navigationElement"><a href="#">Отзывы клиентов</a></li>
-                    <li class="navigationElement1" id="navigationElement1"><a href="#">Сделать заказ</a></li>
-                    <li class="navigationElement2" id="navigationElement2"><a href="#">Проверить статус заказа</a></li>
+                    <li class="navigationElement" id="navigationElement1"><a href="#main">Главная</a></li>
+                    <li class="navigationElement" id="navigationElement2"><a href="#aboutUs">О компании</a></li>
+                    <li class="navigationElement" id="navigationElement3"><a href="#ourProjects">Наши проекты</a></li>
+                    <li class="navigationElement" id="navigationElement4"><a href="#reviewsTitle">Отзывы клиентов</a></li>
+                    <li class="navigationElement1" id="navigationElement5"><a href="#orderTitle">Сделать заказ</a></li>
+                    <li class="navigationElement2" id="navigationElement6"><a href="/checkOrderStatus">Проверить статус заказа</a></li>
                 </ul>
             </nav>
         </div>
@@ -30,11 +34,11 @@
         </div>
     </header>
     <main>
-        <div class="aboutCompanyBox">
+        <div class="aboutCompanyBox" id="aboutUs">
             <h3 class="aboutCompany">О компании</h3>
             <p class="aboutCompanyDesc">Компания Tadjic Entertainment Limited Corporation — это инновационное и креативное предприятие, занимающееся разнообразными аспектами строительства. Она объединяет в себе мастерство в области архитектуры, дизайна и технических решений, предлагая своим клиентам выдающиеся проекты и уникальные переживания. Основные ценности компании Tadjic Entertainment Limited Corporation включают индивидуальный подход к каждому проекту, стремление к инновациям и современным технологиям, а также внимание к деталям и качеству исполнения.</p>
         </div>
-        <h4 class="projectText">Наши проекты</h4>
+        <h4 class="projectText" id="ourProjects">Наши проекты</h4>
         <div class="projectsBoxTop">
             <div class="house1img"></div>
             <div class="house2img"></div>
@@ -43,7 +47,7 @@
             <div class="house3img"></div>
             <div class="house4img"></div>
         </div>
-        <h5 class="reviewsTitle">Отзывы наших клиентов</h5>
+        <h5 class="reviewsTitle" id="reviewsTitle">Отзывы наших клиентов</h5>
         <div class="reviewsBox">
             <p class="review1">Этот трехэтажный дом с бассейном оказался настоящей находкой для нашей семьи. Очарованы не только уютным дизайном и функциональной планировкой.</p>
             <p class="review2">Построили дом для моей мамы, маме очень понравилось. Рабочих она пряитно и горячо отблагодарила на кухне</p>
@@ -54,8 +58,8 @@
             <p class="author2">Руслан Бекешев</p>
             <p class="author3">Олег Нечипоренко</p>
         </div>
-        <h6 class="orderTitle">Форма для заполнения заказа</h6>
-        <form class="orderBox">
+        <h6 class="orderTitle" id="orderTitle">Форма для заполнения заказа</h6>
+        <form class="orderBox" id="orderBox" method="post" action="/api/clients/">
             <div class="ordersBox">
                 <div class="orderBoxClient">
                     <label class="inputName">
@@ -68,7 +72,7 @@
                     </label>
                     <label class="inputPhone">
                         <p class="PhoneText">Номер телефона</p>
-                        <input type="text" class="inputwindow">
+                        <input type="text" class="inputwindow" id="phonenumber" placeholder="+8(XXX)XXX-XX-XX">
                     </label>
                     <label class="inputemail">
                         <p class="emailText">Электронный адрес</p>
@@ -95,11 +99,100 @@
                 </div>
             </div>
             <div class="buttonBox">
-                <button class="button">Сделать заказ</button>
+                <button class="button">Сделать заказ
+                    <div class="star-1">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 784.11 815.53"
+                            style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                            version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                            <defs></defs>
+                            <g id="Layer_x0020_1">
+                                <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+                                <path
+                                    d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+                                    class="fil0"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="star-2">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 784.11 815.53"
+                            style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                            version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                            <defs></defs>
+                            <g id="Layer_x0020_1">
+                                <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+                                <path
+                                    d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+                                    class="fil0"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="star-3">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 784.11 815.53"
+                            style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                            version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                            <defs></defs>
+                            <g id="Layer_x0020_1">
+                                <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+                                <path
+                                    d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+                                    class="fil0"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="star-4">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 784.11 815.53"
+                            style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                            version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                            <defs></defs>
+                            <g id="Layer_x0020_1">
+                                <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+                                <path
+                                    d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+                                    class="fil0"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="star-5">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 784.11 815.53"
+                            style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                            version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                            <defs></defs>
+                            <g id="Layer_x0020_1">
+                                <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+                                <path
+                                    d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+                                    class="fil0"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="star-6">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 784.11 815.53"
+                            style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                            version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                            <defs></defs>
+                            <g id="Layer_x0020_1">
+                                <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+                                <path
+                                    d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+                                    class="fil0"></path>
+                            </g>
+                        </svg>
+                    </div>
+                </button>
             </div>
         </form>
+        <div class="messageBox">
+            <div id="successMessage" class="successMessage"></div>
+            <div id="errorMessage" class="errorMessage"></div>
+        </div>
     </main>
     <footer>
         <div class="blackBox"></div>
     </footer>
+    <script>
+        $(function() {
+            $("#phonenumber").mask("8(999)999-9999");
+        });
+    </script>
 </body>
+</html>

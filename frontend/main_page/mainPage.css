@@ -1,3 +1,8 @@
+html {
+    scroll-behavior: smooth;
+    font-family: Inter;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -34,11 +39,12 @@ a {
 }
 
 .navigationMenu {
+    position: fixed;
     width: 100%;
     height: max-content;
     display: flex;
     justify-content: center;
-    position: relative;
+    z-index: 1000;
 }
 
 .navigationMenu ul {
@@ -50,9 +56,16 @@ a {
     align-items: center;
 }
 
+.navigationMenu.scrolled {
+    top: 0.02vw;
+    background-color: #FFFFFF;
+    border: 1px solid #000;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
 .navigationElement {
     color: #000;
-    font-family: Inter;
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
@@ -74,7 +87,6 @@ a {
 
 .navigationElement1 {
     color: #000;
-    font-family: Inter;
     font-size: 26px;
     font-style: normal;
     font-weight: 300;
@@ -96,7 +108,6 @@ a {
 
 .navigationElement2 {
     color: #000;
-    font-family: Inter;
     font-size: 26px;
     font-style: normal;
     font-weight: 300;
@@ -132,7 +143,6 @@ a {
     position: relative;
     color: #FFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: Inter;
     font-size: 60px;
     font-weight: 600;
     user-select: none;
@@ -145,7 +155,6 @@ a {
     margin-block-start: 0em;
     margin-block-end: 0em;  
     color: rgba(255, 255, 255, 0.50);
-    font-family: Inter;
     font-size: 34px;
     font-weight: 600;
     justify-content: center;
@@ -157,7 +166,6 @@ a {
     justify-content: center;
     padding-top: 20px;
     color: #000;
-    font-family: Inter;
     font-size: 40px;
     font-weight: 400;
 }
@@ -166,7 +174,6 @@ a {
     margin-left: 15px;
     display: flex;
     color: #000;
-    font-family: Inter;
     font-size: 26px;;
     font-weight: 300;
     letter-spacing: 0.96px;
@@ -183,7 +190,6 @@ a {
     justify-content: center;
     margin-top: 6vw;
     color: #000;
-    font-family: Inter;
     font-size: 40px;
     font-weight: 400;
 }
@@ -244,7 +250,6 @@ a {
     display: flex;
     justify-content: center;
     color: #000;
-    font-family: Inter;
     font-size: 40px;
     font-weight: 400;
 }
@@ -258,7 +263,6 @@ a {
 .review1 {
     margin-left: 30px;
     color: #000;
-    font-family: Inter;
     font-size: 24px;
     font-style: oblique;
     font-weight: 300;
@@ -267,7 +271,6 @@ a {
 
 .review2 {
     color: #000;
-    font-family: Inter;
     font-size: 24px;
     font-style: oblique;
     font-weight: 300;
@@ -277,7 +280,6 @@ a {
 .review3 {
     margin-left: 20px;
     color: #000;
-    font-family: Inter;
     font-size: 24px;
     font-style: oblique;
     font-weight: 300;
@@ -295,7 +297,6 @@ a {
 .author1 {
     margin-left: 27.8vw;
     color: #000;
-    font-family: Inter;
     font-size: 20px;
     font-style: oblique;
     font-weight: 300;
@@ -305,7 +306,6 @@ a {
 .author2 {
     margin-left: 5vw;
     color: #000;
-    font-family: Inter;
     font-size: 20px;
     font-style: oblique;
     font-weight: 300;
@@ -315,7 +315,6 @@ a {
 .author3 {
     margin-right: 4vw;
     color: #000;
-    font-family: Inter;
     font-size: 20px;
     font-style: oblique;
     font-weight: 300;
@@ -326,14 +325,12 @@ a {
     display: flex;
     justify-content: center;
     color: #000;
-    font-family: Inter;
     font-size: 40px;
     font-weight: 400;
 }
 
 .inputName {
     color: #000;
-    font-family: Inter;
     font-size: 25px;
     font-weight: 300;
 }
@@ -347,51 +344,190 @@ a {
 
 .inputSurname {
     color: #000;
-    font-family: Inter;
     font-size: 25px;
     font-weight: 300;
 }
 
 .inputPhone {
     color: #000;
-    font-family: Inter;
     font-size: 25px;
     font-weight: 300;
 }
 
 .inputemail {
     color: #000;
-    font-family: Inter;
     font-size: 25px;
     font-weight: 300;
 }
 
 .inputType {
     color: #000;
-    font-family: Inter;
     font-size: 25px;
     font-weight: 300;
 }
 
 .inputFloors {
     color: #000;
-    font-family: Inter;
     font-size: 25px;
     font-weight: 300;
 }
 
 .inputSquare {
     color: #000;
-    font-family: Inter;
     font-size: 25px;
     font-weight: 300;
 }
 
 .inputBudget {
     color: #000;
-    font-family: Inter;
     font-size: 25px;
     font-weight: 300;
+}
+
+.button {
+    font-family: Montserrat;
+    position: relative;
+    padding: 12px 35px;
+    background: #fec195;
+    font-size: 24px;
+    font-weight: 500;
+    color: #181818;
+    border: 3px solid #fec195;
+    border-radius: 20px;
+    box-shadow: 0 0 0 #fec1958c;
+    transition: all 0.3s ease-in-out;
+}
+
+.star-1 {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 25px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+}
+
+.star-2 {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    width: 15px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-3 {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    width: 5px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-4 {
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    width: 8px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-5 {
+    position: absolute;
+    top: 25%;
+    left: 45%;
+    width: 15px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 0.6s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-6 {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    width: 5px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 0.8s ease;
+}
+
+.button:hover {
+    background: transparent;
+    color: #fec195;
+    box-shadow: 0 0 25px #fec1958c;
+}
+
+.button:hover .star-1 {
+    position: absolute;
+    top: -80%;
+    left: -30%;
+    width: 25px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.button:hover .star-2 {
+    position: absolute;
+    top: -25%;
+    left: 10%;
+    width: 15px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.button:hover .star-3 {
+    position: absolute;
+    top: 55%;
+    left: 25%;
+    width: 5px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.button:hover .star-4 {
+    position: absolute;
+    top: 30%;
+    left: 80%;
+    width: 8px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.button:hover .star-5 {
+    position: absolute;
+    top: 25%;
+    left: 115%;
+    width: 15px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.button:hover .star-6 {
+    position: absolute;
+    top: 5%;
+    left: 60%;
+    width: 5px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
 }
 
 .ordersBox {
@@ -420,7 +556,16 @@ footer {
     justify-content: center;
 }
 
-.button {
+.messageBox {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.successMessage {
     font-size: 24px;
-    font-family: Inter;
+}
+
+.errorMessage {
+    font-size: 24px;
 }
