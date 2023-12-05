@@ -40,18 +40,17 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .then(data => {
                 console.log(data);
-                // Действия после успешного создания заказа
                 successMessage.textContent = `Заказ успешно добавлен! Ваш номер заказа: ${data.order_number}`;
                 successMessage.style.display = "block";
-                successMessage.classList.add("success-message"); // Добавляем класс
+                successMessage.classList.add("success-message");
+                successMessage.classList.remove("error-message");
             })
             .catch(error => {
                 console.error(error);
-                // Действия в случае ошибки
                 errorMessage.textContent = error.message;
                 errorMessage.style.color = "red";
                 errorMessage.style.display = "block";
-                errorMessage.classList.remove("success-message"); // Убираем класс
+                errorMessage.classList.remove("success-message");
             });
         });
     }
@@ -67,4 +66,21 @@ document.addEventListener("DOMContentLoaded", function () {
             navigationMenu.classList.remove('scrolled');
         }
     });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const panels = document.querySelectorAll('.panel');
+
+    panels.forEach(panel => {
+        panel.addEventListener('click', () => {
+            removeActiveClasses();
+            panel.classList.add('active');
+        })
+    });
+
+    function removeActiveClasses(){
+        panels.forEach(panel => {
+            panel.classList.remove('active');
+        })
+    }
 });
